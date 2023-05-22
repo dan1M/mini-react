@@ -1,4 +1,4 @@
-import generatePage from './generate-page';
+import generatePage from './generate-page.js';
 
 export default function Router(routes, rootElement) {
   const router = {
