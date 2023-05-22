@@ -1,14 +1,12 @@
 function prop_access(obj, path) {
   const pathElements = path.split(".");
   let result = obj;
-  let actualpath = "";
   for (const pathElement of pathElements) {
-    if (Array.isArray(result[pathElement])) {
-      return result[pathElement][pathElements.indexOf(pathElement) + 1].type;
+    if (result && pathElement in result) {
+      result = result[pathElement];
+    } else {
+      return undefined;
     }
-    if (pathElements.indexOf(pathElement) !== 0) actualpath += ".";
-    actualpath += pathElement;
-    if (pathElement == Object.keys(result)[0]) result = result[pathElement];
   }
   return result;
 }
@@ -21,3 +19,9 @@ export default String.prototype.interpolate = function (object) {
   });
   return interpolatedString;
 };
+
+/* Test
+const machaine = "Type d'animal: {{ type.name }}";
+const animal = { type: { name: "chien" } };
+console.log(machaine.interpolate(animal));
+*/
