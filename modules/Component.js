@@ -1,14 +1,10 @@
-class Component {
+export default class Component {
   constructor(props) {
+    // Il manque la vérifiaction des props avec type_check_v3
     this.props = props;
-    //  - Validation des propriétés passées au composant
-    //  - Utilisation du type_checker
-    //  - version minimum: 3
-    //  - exemples cas d'utilisation: Vérifier les données en entrée de constructeur
   }
 
   shouldUpdate(newProps) {
-    // compare newProps avec les oldProps
     for (const prop in newProps) {
       if (
         newProps.hasOwnProperty(prop) &&
@@ -22,15 +18,10 @@ class Component {
   }
 
   render() {
-    //  - si `render` invoque d'autres composants, le composant courant appelle la fonction `display(compProps)` des sous-composants
-    //  utilisation de generateElement ici?
+    return null;
   }
 
-  display() {
-    //  display appelle la méthode `shouldUpdate()` du composant courant
-    //  - si shouldUpdate
-    //      - appelle la fonction `render` du composant
-    //  - le résultat de `display` est ajouté au DOM sous le noeud parent
+  display(parentNode) {
     const shouldUpdate = this.shouldUpdate();
     if (shouldUpdate) {
       const element = this.render();
