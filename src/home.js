@@ -20,7 +20,11 @@ const home = {
       children: [
         {
           tag: 'li',
-          children: [Link('About', '/about'), Link('Contact', '/contact')],
+          children: [Link('About', '/about')],
+        },
+        {
+          tag: 'li',
+          children: [Link('Contact', '/contact')],
         },
       ],
     },

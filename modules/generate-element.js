@@ -1,4 +1,13 @@
-// { tag: 'div', ?props: { class: 'center-div' }, children: ["TEST", { tag: 'p', children: ["YOYO"] }] }
+/* 
+  { 
+    tag: 'div', 
+    ?props: { class: 'center-div' }, 
+    children: [
+      "TEST", 
+      { tag: 'p', children: ["YOYO"] }
+    ] 
+  } 
+*/
 export default function generateElement(element) {
   if (typeof element === 'string') {
     return document.createTextNode(element);

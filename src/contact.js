@@ -20,7 +20,11 @@ const contact = {
       children: [
         {
           tag: 'li',
-          children: [Link('Home', '/home'), Link('About', '/about')],
+          children: [Link('Home', '/home')],
+        },
+        {
+          tag: 'li',
+          children: [Link('About', '/about')],
         },
       ],
     },

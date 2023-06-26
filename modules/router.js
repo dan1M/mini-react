@@ -6,6 +6,15 @@ export default function Router(routes, rootElement) {
     rootElement: rootElement,
     getPathname: () => window.location.pathname,
   };
+
+  const oldPushState = window.history.pushState;
+  window.history.pushState = function (data, title, url) {
+    oldPushState.call(window.history, data, title, url);
+    window.dispatchEvent(new Event('popstate'));
+  };
+
+  window.onpopstate = generatePage.bind(router);
+  generatePage.call(router);
 }
 
 export function Link(title, href) {

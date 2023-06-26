@@ -16,7 +16,11 @@ const about = {
       children: [
         {
           tag: 'li',
-          children: [Link('Home', '/home'), Link('Contact', '/contact')],
+          children: [Link('Home', '/home')],
+        },
+        {
+          tag: 'li',
+          children: [Link('Contact', '/contact')],
         },
       ],
     },
