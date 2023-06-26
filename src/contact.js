@@ -3,7 +3,7 @@ import { Link } from '../modules/router.js';
 const contact = {
   tag: 'main',
   props: {
-    class: 'contact',
+    className: 'contact',
   },
   children: [
     {

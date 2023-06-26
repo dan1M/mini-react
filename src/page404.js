@@ -3,7 +3,7 @@ import { Link } from '../modules/router.js';
 const page404 = {
   tag: 'main',
   props: {
-    class: 'page404',
+    className: 'page404',
   },
   children: [
     {

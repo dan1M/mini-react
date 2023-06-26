@@ -14,7 +14,7 @@ export default function generateElement(element) {
   }
 
   const el = document.createElement(element.tag);
-
+  
   if (element.props) {
     Object.keys(element.props).forEach((prop) => {
       el[prop] = element.props[prop];

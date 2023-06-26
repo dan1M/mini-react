@@ -3,12 +3,15 @@ import { Link } from '../modules/router.js';
 const home = {
   tag: 'main',
   props: {
-    class: 'home',
+    className: 'home',
   },
   children: [
     {
       tag: 'h1',
       children: ['Home'],
+      props: {
+        style: 'color: red;'
+      }
     },
     {
       tag: 'p',

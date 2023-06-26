@@ -22,7 +22,7 @@ export function Link(title, href) {
     tag: 'a',
     props: {
       href: href,
-      onClick: (event) => {
+      onclick: (event) => {
         event.preventDefault();
         window.history.pushState({}, '', href);
       },

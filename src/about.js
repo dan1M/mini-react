@@ -3,7 +3,7 @@ import { Link } from '../modules/router.js';
 const about = {
   tag: 'main',
   props: {
-    class: 'about',
+    className: 'about',
   },
   children: [
     {
