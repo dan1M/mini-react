@@ -32,10 +32,6 @@ export default class Contact extends Component {
               tag: 'li',
               children: [Link('Home', '/home')],
             },
-            {
-              tag: 'li',
-              children: [Link('About', '/about')],
-            },
           ],
         },
       ],

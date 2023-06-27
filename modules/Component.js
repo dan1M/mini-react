@@ -2,6 +2,9 @@ export default class Component {
   constructor(props) {
     // Il manque la vérifiaction des props avec type_check_v3
     this.props = props;
+    if (typeof this.render !== 'function') {
+      throw new Error('Component must have a render method');
+    }
   }
 
   shouldUpdate(newProps) {

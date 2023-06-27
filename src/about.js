@@ -8,7 +8,7 @@ export default class About extends Component {
 
   render() {
     return {
-      tag: 'main',
+      tag: 'section',
       props: {
         className: 'about',
       },
@@ -18,21 +18,8 @@ export default class About extends Component {
           children: ['About us'],
         },
         {
-          tag: 'h2',
-          children: ['Other pages :'],
-        },
-        {
-          tag: 'ul',
-          children: [
-            {
-              tag: 'li',
-              children: [Link('Home', '/home')],
-            },
-            {
-              tag: 'li',
-              children: [Link('Contact', '/contact')],
-            },
-          ],
+          tag: 'p',
+          children: [this.props.description],
         },
       ],
     };
