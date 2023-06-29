@@ -15,11 +15,9 @@ export default function generateElement(element) {
     return document.createTextNode(element);
   }
 
+  console.log('element:', element);
   // checking if element is a Component, if so we instanciate it and call render
-  if (
-    Boolean(element.tag.prototype) &&
-    element.tag.prototype instanceof Component
-  ) {
+  if (element.tag.prototype && element.tag.prototype instanceof Component) {
     const component = new element.tag(element.props);
     return generateElement(component.render());
   }

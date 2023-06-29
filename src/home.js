@@ -1,8 +1,6 @@
 import { Link } from '../modules/router.js';
 import Component from '../modules/Component.js';
 import About from './about.js';
-import Contact from './contact.js';
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -40,9 +38,7 @@ class Home extends Component {
         {
           tag: 'section',
           props: {},
-          children: [
-            { tag: About, props: { description: 'OEOEOE LA PAGE A PROPOS' } },
-          ],
+          children: [{ tag: About, props: { description: 3 } }],
         },
       ],
     };

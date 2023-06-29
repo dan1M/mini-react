@@ -1,9 +1,13 @@
-import { Link } from '../modules/router.js';
 import Component from '../modules/Component.js';
 
 export default class About extends Component {
   constructor(props) {
-    super(props);
+    const propTypes = {
+      description: {
+        type: 'string',
+      },
+    };
+    super(props, propTypes);
   }
 
   render() {
