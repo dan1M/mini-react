@@ -1,37 +1,48 @@
 import { Link } from '../modules/router.js';
+import Component from '../modules/Component.js';
+import About from './about.js';
+class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-const home = {
-  tag: 'main',
-  props: {
-    className: 'home',
-  },
-  children: [
-    {
-      tag: 'h1',
-      children: ['Home'],
+  render() {
+    return {
+      tag: 'main',
       props: {
-        style: 'color: red;'
-      }
-    },
-    {
-      tag: 'p',
-      children: ['Welcome to the home page!'],
-    },
-    { tag: 'h2', children: ['Other pages :'] },
-    {
-      tag: 'ul',
+        className: 'home',
+      },
       children: [
         {
-          tag: 'li',
-          children: [Link('About', '/about')],
-        },
-        {
-          tag: 'li',
+          tag: 'nav',
+          props: {},
           children: [Link('Contact', '/contact')],
         },
+        {
+          tag: 'section',
+          props: {},
+          children: [
+            {
+              tag: 'h1',
+              children: ['Home'],
+              props: {
+                style: 'color: red;',
+              },
+            },
+            {
+              tag: 'p',
+              children: ['Welcome to the home page!'],
+            },
+          ],
+        },
+        {
+          tag: 'section',
+          props: {},
+          children: [{ tag: About, props: { description: 3 } }],
+        },
       ],
-    },
-  ],
-};
+    };
+  }
+}
 
-export default home;
+export default Home;

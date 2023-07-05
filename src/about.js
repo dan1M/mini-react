@@ -1,30 +1,31 @@
-import { Link } from '../modules/router.js';
+import Component from '../modules/Component.js';
 
-const about = {
-  tag: 'main',
-  props: {
-    className: 'about',
-  },
-  children: [
-    {
-      tag: 'h1',
-      children: ['About us'],
-    },
-    { tag: 'h2', children: ['Other pages :'] },
-    {
-      tag: 'ul',
+export default class About extends Component {
+  constructor(props) {
+    const propTypes = {
+      description: {
+        type: 'string',
+      },
+    };
+    super(props, propTypes);
+  }
+
+  render() {
+    return {
+      tag: 'section',
+      props: {
+        className: 'about',
+      },
       children: [
         {
-          tag: 'li',
-          children: [Link('Home', '/home')],
+          tag: 'h1',
+          children: ['About us'],
         },
         {
-          tag: 'li',
-          children: [Link('Contact', '/contact')],
+          tag: 'p',
+          children: [this.props.description],
         },
       ],
-    },
-  ],
-};
-
-export default about;
+    };
+  }
+}

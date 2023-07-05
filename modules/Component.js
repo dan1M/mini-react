@@ -1,14 +1,34 @@
-class Component {
-  constructor(props) {
+import type_check from './type-check.js';
+
+export default class Component {
+  constructor(props, propTypes) {
+    if (type_check(props, { type: 'undefined' })) {
+      return;
+    }
+    if (type_check(propTypes, { type: 'undefined' })) {
+      throw new Error('propTypes must be defined');
+    }
+    console.log('props:', props);
+    console.log('types:', propTypes);
+    if (!type_check(propTypes, { type: 'object' })) {
+      throw new Error('propTypes must be an object');
+    }
+
+    console.log(
+      'good types ?:',
+      type_check(props, { type: 'object', properties: { propTypes } })
+    );
+    // if (!type_check(props, propTypes)) {
+    //   throw new Error('invalid props');
+    // }
+
     this.props = props;
-    //  - Validation des propriétés passées au composant
-    //  - Utilisation du type_checker
-    //  - version minimum: 3
-    //  - exemples cas d'utilisation: Vérifier les données en entrée de constructeur
+    if (typeof this.render !== 'function') {
+      throw new Error('Component must have a render method');
+    }
   }
 
   shouldUpdate(newProps) {
-    // compare newProps avec les oldProps
     for (const prop in newProps) {
       if (
         newProps.hasOwnProperty(prop) &&
@@ -22,15 +42,10 @@ class Component {
   }
 
   render() {
-    //  - si `render` invoque d'autres composants, le composant courant appelle la fonction `display(compProps)` des sous-composants
-    //  utilisation de generateElement ici?
+    return null;
   }
 
-  display() {
-    //  display appelle la méthode `shouldUpdate()` du composant courant
-    //  - si shouldUpdate
-    //      - appelle la fonction `render` du composant
-    //  - le résultat de `display` est ajouté au DOM sous le noeud parent
+  display(parentNode) {
     const shouldUpdate = this.shouldUpdate();
     if (shouldUpdate) {
       const element = this.render();
